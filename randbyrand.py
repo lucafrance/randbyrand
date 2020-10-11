@@ -39,7 +39,7 @@ def get_digits(format="list"):
 def main():
     print("Testing the module randbyrand.")
     try:
-        digits = get_digits("numpy")
+        digits = get_digits()
     except:
         print("Downloading or reading digits failed.")
         return
@@ -53,7 +53,7 @@ def main():
     else:
         print("One million digits have been retrieved correctly.")
     
-    if all(digits[:5] == [1, 0, 0, 9, 7]) and all(digits[999995:] == [4, 1, 9, 8, 8]):
+    if digits[:5] == [1, 0, 0, 9, 7] and digits[999995:] == [4, 1, 9, 8, 8]:
         print("Heading and final digits match.")
     else:
         print("Heading and final digits do NOT match.")
