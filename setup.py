@@ -12,11 +12,13 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/lucafrance/randbyrand",
-    packages=["setup.py"],
+    license="MIT License",
+    py_modules=["randbyrand"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.8",
+    install_requires=["requests", "numpy", "pandas"]
 )
