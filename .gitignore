@@ -1,4 +1,8 @@
 venv/
 get_started.ps1
 
+build/
+dist/
+randbyrand.egg-info/
+
 digits.txt
