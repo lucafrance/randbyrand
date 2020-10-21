@@ -1,4 +1,5 @@
 venv/
+__pycache__
 get_started.ps1
 
 build/
