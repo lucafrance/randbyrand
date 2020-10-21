@@ -9,23 +9,24 @@ import pandas as pd
 
 URL_MILLION_RANDOM_DIGITS = "https://www.rand.org/content/dam/rand/pubs/monograph_reports/MR1418/MR1418.digits.txt.zip"
 N = 1000000
+DIGITS_FILENAME = "digits.txt"
 
 def download_digits():
     """Downloads the digits in the original format to a digits.txt file"""
     r = requests.get(url=URL_MILLION_RANDOM_DIGITS)
     open("digits.zip", 'wb').write(r.content)
-    zipfile.ZipFile("digits.zip", mode="r").extract("digits.txt")
+    zipfile.ZipFile("digits.zip", mode="r").extract(DIGITS_FILENAME)
     os.remove("digits.zip")
 
 def get_digits(format="list"):
     """Returns the digits in the preferred format (list, numpy, pandas)"""
     
     # If the source file is missing, download it
-    if not os.path.exists("digits.txt"):
+    if not os.path.exists(DIGITS_FILENAME):
         download_digits()
     
     digits = ""
-    for line in open("digits.txt", "rt").readlines():
+    for line in open(DIGITS_FILENAME, "rt").readlines():
         # Ignore the first group of digits for each line, it is just the row number,
         # then remove any remaining spaces and newline charachters
         digits += list(line.split(" ", maxsplit=1))[1] \
@@ -69,7 +70,8 @@ def main():
     tailing_digits = [4, 1, 9, 8, 8]
     
     # Test download
-    
+    if os.path.exists(DIGITS_FILENAME):
+        os.remove(DIGITS_FILENAME)
     try:
         digits = get_digits()
     except:
