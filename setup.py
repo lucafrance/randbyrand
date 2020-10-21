@@ -5,7 +5,7 @@ with open("README.md", "rt") as fh:
 
 setuptools.setup(
     name="randbyrand", 
-    version="1.0.0",
+    version="1.1.0",
     author="Luca Franceschini",
     author_email="luca.france@outlook.com",
     description="Retrive a million random digits by RAND Corporation.",
